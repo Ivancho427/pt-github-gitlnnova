@@ -20,27 +20,57 @@
 }
 
 .title {
-  padding: 50px;
+  padding: 1.2rem;
+  font-size: 1.2rem;
 }
 
+
+.botonBusqueda {
+  background-color: #246355;
+  color: white;
+  border-radius: 0.3125rem;
+  margin-left: 0.75rem;
+  padding: 0.1875rem;
+}
+
+.inputBusqueda {
+  border-radius: 0.3125rem;
+  padding: 0.1875rem;
+  border-color:  #0F362D;
+}
+
+.inputFiltro {
+  border-radius: 0.3125rem;
+  border-color: #0F362D;
+  padding: 0.1875rem;
+  margin-bottom: 1.875rem;
+
+}
 
 .listContainer { 
   justify-content: center;
 }
 
+
 .table { 
   text-align: start;
+ 
+}
+
+.table-responsive{   
+  margin-bottom: 20vh;
 }
 
  th , td, tr {
   border: solid  #0F362D; 
-  padding: 10px;
+  padding: 0.625rem;
 }
 
-thead {
+.thead {
   background-color: #246355;
   border-bottom: solid 5px #0F362D;
   color: white;
+ 
 }
 
 tr:nth-child(even) {
@@ -49,6 +79,6 @@ tr:nth-child(even) {
 }
 
 .tabla-tr {
-  font-size: 15px;
+  font-size: 0.9375rem;
   text-align: center;
 }

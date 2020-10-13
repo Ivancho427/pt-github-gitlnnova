@@ -9,9 +9,10 @@ export default class ButtonInput extends Component {
       user: "",
       repos: [],
       error: "",
-      search:""
+      search: "",
       // next:"",
       // previous:""
+      busqueda: "",
     };
   }
 
@@ -36,51 +37,69 @@ export default class ButtonInput extends Component {
     }
   };
 
-  searchRepo = repo => {
-      const { search } = this.state;
-      var code = repo.code.toLowerCase()
 
-      if (search !== "" && repo.name.indexOf( search ) === -1) {
-          return null
+  // onKeyUp = e => {
+  //     this.setState({ search: e.target.value })
+  // }
+
+  // filtrarRepositorios = (e) => {
+
+  //   let filtro = document.querySelector("#filtro").value.toLowerCase();
+  //   let resultado = this.state.user.filter(function (repo) {
+  //     let nombreMin = repo.name.tolowerCase();
+  //     return nombreMin.indexOf(filtro) >= 1;
+  //   });
+  //   console.log(resultado);
+  // };
+
+  onChange = async e => {
+    // e.persist();
+    await this.setState({busqueda : e.target.value})
+    console.log(this.state.busqueda)
+    this.filtrarElementos();
+  }
+
+  filtrarElementos=()=>{
+    let search = this.state.repos.filter(repo => {
+      if(repo.name.toString().includes(this.state.busqueda)){
+        return repo;
       }
+    });
+    this.setState({repos: search})
   }
 
-  onKeyUp = e => {
-      this.setState({ search: e.target.value })
+  
+  componentDidMount(){
+    this.setState({repos: this.state.repos})
   }
-
-//   filtrarRepositorios = (e) => {
-//     let filtro = document.querySelector("#filtro").value.toLowerCase();
-//     let resultado = user.filter(function (repo) {
-//       let nombreMin = repo.name.tolowerCase();
-//       return nombreMin.indexOf(filtro) >= 0;
-//     });
-//     console.log(resultado);
-//   };
 
   render() {
     const { user, repos, error } = this.state;
-    
+
     return (
       <div>
-        <h2 className="title">Ingresa el usuario de Github a continuación</h2>
+        
         <InputyBoton
           handleInputChange={this.handleInputChange}
           user={user}
           error={error}
           buttonAction={this.searchUser}
+          repos
         />
-        {/* <button>Anterior</button>    
-        <button>Siguiente</button>   */}
+        <label className="title input2"><strong>Ingrese el nombre exacto del repositorio en el siguiente campo: </strong> </label>
         <input
           type="text"
-          id="filtro"
-          onKeyUp={this.onKeyUp}
-          placeholder="Nombre del repositorio"
+          id="filtro"          
+          placeholder="Filtrar por nombre"
+          name="busqueda"
+          value={this.state.busqueda}
+          onChange={this.onChange}
+          className="inputFiltro"
         ></input>
-        <div className="table-responsive-lg">
+
+        <div className="table-responsive">
           <table className="table">
-            <thead>
+            <thead className="thead">
               <tr className="tabla-tr">
                 <th>Lenguaje</th>
                 <th>Branch por defecto</th>
