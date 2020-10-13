@@ -2,11 +2,10 @@ import React from "react";
 import { Button, Form, Col, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
-import swal from 'sweetalert';
-import MostrarDatos from './MostrarDatos'
+import swal from "sweetalert";
 
-
-const baseUrl = "https://api-pt-pt-github-gitlnnova.ivancho427.vercel.app/users";
+const baseUrl =
+  "https://api-pt-pt-github-gitlnnova.ivancho427.vercel.app/users";
 
 export default function Formulario() {
   const [validated, setValidated] = useState(false);
@@ -17,7 +16,7 @@ export default function Formulario() {
     cedula: "",
     date: "",
     email: "",
-    usuario: ""
+    usuario: "",
   });
 
   const handleInputChange = (e) => {
@@ -33,13 +32,11 @@ export default function Formulario() {
         ...datos,
       })
       .then((response) => {
-        console.log(response)
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
       });
-
-
   };
 
   const handleSubmit = (event) => {
@@ -48,32 +45,24 @@ export default function Formulario() {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-    setValidated(true);   
-    
- 
-  if (form.checkValidity() === true) {
-    swal({
-      title:"Registro realizado correctamente",
-      icon:"success",
-      button:"Aceptar",
-      timer: "8000"
-    })   
-    event.target.reset(setValidated(false));  
-  } 
+    setValidated(true);
 
-//   const mostrar = () => { 
-//     if( setValidated(true) ) {
-//        return (datos.name)
-//   }
-// }
-};
+    if (form.checkValidity() === true) {
+      swal({
+        title: "Registro realizado correctamente",
+        icon: "success",
+        button: "Aceptar",
+        timer: "8000",
+      });
+      event.target.reset(setValidated(false));
+    }
+  };
 
   return (
-    <div className="d-flex flex-md-row flex-column bg ">      
+    <div className="d-flex flex-md-row flex-column bg ">
       <div className="w-100 p-3 fondo">
-     
-      <h3>Candidato</h3>   
-        <h2>Registre sus datos en el siguiente formulario</h2>    
+        <h3>Candidato</h3>
+        <h2>Registre sus datos en el siguiente formulario</h2>
         <Form
           className="formulario mt-5"
           noValidate
@@ -90,7 +79,7 @@ export default function Formulario() {
                 defaultValue=""
                 name="name"
                 onChange={handleInputChange}
-                />
+              />
               <Form.Control.Feedback type="invalid">
                 Ingrese el nombre.
               </Form.Control.Feedback>
@@ -116,8 +105,7 @@ export default function Formulario() {
             <Form.Group as={Col} md="6" controlId="validationCustomUsername">
               <Form.Label>Cédula: </Form.Label>
               <InputGroup>
-                <InputGroup.Prepend>                  
-                </InputGroup.Prepend>
+                <InputGroup.Prepend></InputGroup.Prepend>
                 <Form.Control
                   type="text"
                   placeholder="Cédula *"
@@ -125,7 +113,6 @@ export default function Formulario() {
                   required
                   name="cedula"
                   onChange={handleInputChange}
-                  
                 />
                 <Form.Control.Feedback type="invalid">
                   Ingrese la cédula.
@@ -149,9 +136,9 @@ export default function Formulario() {
           </Form.Row>
 
           <Form.Row className="justify-content-center">
-          <Form.Group as={Col} md="6">
-          <Form.Label>Correo electrónico</Form.Label>
-          <Form.Control
+            <Form.Group as={Col} md="6">
+              <Form.Label>Correo electrónico</Form.Label>
+              <Form.Control
                 type="email"
                 placeholder="Correo electrónico *"
                 required
@@ -161,12 +148,11 @@ export default function Formulario() {
               <Form.Control.Feedback type="invalid">
                 Ingrese el correo electrónico.
               </Form.Control.Feedback>
-
-          </Form.Group>
-          <Form.Group as={Col} md="6">
-          <Form.Label>Usuario Github</Form.Label>
-          <Form.Control
-                type="text"                
+            </Form.Group>
+            <Form.Group as={Col} md="6">
+              <Form.Label>Usuario Github</Form.Label>
+              <Form.Control
+                type="text"
                 placeholder="Usuario Github *"
                 required
                 name="usuario"
@@ -175,10 +161,8 @@ export default function Formulario() {
               <Form.Control.Feedback type="invalid">
                 Ingrese el usuario de Github.
               </Form.Control.Feedback>
-
-          </Form.Group>
+            </Form.Group>
           </Form.Row>
-
 
           <Form.Group>
             <Form.Check
@@ -187,16 +171,11 @@ export default function Formulario() {
               feedback="You must agree before submitting."
             />
           </Form.Group>
-          <Button id="boton"type="submit" onClick={() => enviarDatos()}>
+          <Button id="boton" type="submit" onClick={() => enviarDatos()}>
             Registrarse
           </Button>
         </Form>
-        {/* <h1>{datos.name}</h1> */}
-        <h1>{datos.last_name}</h1>
-       
       </div>
-       <MostrarDatos />
-      </div>
-    
+    </div>
   );
 }

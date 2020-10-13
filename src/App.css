@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #33353a;
   min-height: 40vh;
   display: flex;
   flex-direction: column;
@@ -11,16 +11,44 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-
 }
 
-.modalBackground {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease-in-out;
+#boton {
+  background-color: #246355;
+  color: white;
+  border: solid 2px #0F362D;
 }
 
-.modalShowing-true {
-  opacity: 1;
-  pointer-events: showing;
+.title {
+  padding: 50px;
+}
+
+
+.listContainer { 
+  justify-content: center;
+}
+
+.table { 
+  text-align: start;
+}
+
+ th , td, tr {
+  border: solid  #0F362D; 
+  padding: 10px;
+}
+
+thead {
+  background-color: #246355;
+  border-bottom: solid 5px #0F362D;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  
+}
+
+.tabla-tr {
+  font-size: 15px;
+  text-align: center;
 }
