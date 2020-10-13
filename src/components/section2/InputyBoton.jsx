@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = ({user, error, buttonAction, handleInputChange}) => (
+const InputyBoton = ({user, error, buttonAction, handleInputChange}) => (
     <div className="formContainer">
         <input 
         type="text" 
@@ -15,4 +15,4 @@ const Form = ({user, error, buttonAction, handleInputChange}) => (
 
 )
 
-export default Form;
+export default InputyBoton;
