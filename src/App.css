@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
-
 
 .App {
   text-align: center;
 }
+
+/* section1 */
 
 .App-header {
   min-height: 40vh;
@@ -16,18 +15,19 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background: linear-gradient(to bottom, #030303,#767883);
+  background: linear-gradient(to bottom, #030303, #767883);
 }
 
 .info-funcion {
   font-family: 'Bungee Inline', cursive;
   font-size: 35px;
 }
-.presioneboton {  
+
+.presioneboton {
   font-family: 'Contrail One', cursive;
 }
 
-#boton-modal { 
+#boton-modal {
   background-color: #2e806e;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 18px;
@@ -36,10 +36,10 @@
 #boton-modal:hover {
   background-color: #3ca891;
   border: #f2f8f7;
-  color:rgb(248, 245, 245);
+  color: rgb(248, 245, 245);
 }
 
-#boton-cerrar{
+#boton-cerrar {
   width: 40%;
   margin-left: 140px;
   margin-bottom: 20px;
@@ -55,10 +55,11 @@
 #header-modal {
   background-color: #246355;
   color: #f2f8f7;
+  font-family: 'Bungee Inline', cursive;
 }
 
-#card-usuario {    
-  background: linear-gradient(to bottom,#9597a3 , #080808);
+#card-usuario {
+  background: linear-gradient(to bottom, #9597a3, #080808);
   margin-top: 30px;
   border-radius: 20px;
 }
@@ -67,6 +68,7 @@
   transform: translateY(-10px);
 }
 
+/* section2 */
 
 .texto-formulario {
   margin-top: 70px;
@@ -78,36 +80,43 @@
 }
 
 #card {
-  background-color: #dddddd;  
+  background-color: #dddddd;
   border-radius: 20px;
   box-shadow: 1px 10px 70px -8px #0a0a0a;
 }
 
-
 @media (min-width:1100px) {
   #card {
-   margin-left: 150px;
-   margin-right: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
   }
 }
 
+.tabla-user {
+  font-family: 'Bungee Inline', cursive;
+}
+
+.info-user {
+  font-family: 'Contrail One', cursive;
+}
+
 #boton {
-  background-color: #246355;  
+  background-color: #246355;
   color: white;
   border: solid 2px #0F362D;
-  
 }
 
 #boton:hover {
-  background-color: #0F362D;  
+  background-color: #0F362D;
   color: white;
-  border: solid 2px #246355; 
+  border: solid 2px #246355;
   transform: translateY(-3px);
 }
 
 .title {
   padding: 1.2rem;
   font-size: 1.2rem;
+  font-family: 'Contrail One', cursive;
 }
 
 .tablas {
@@ -119,13 +128,18 @@
   color: white;
   border-radius: 0.3125rem;
   margin-left: 0.75rem;
-  padding: 0.1875rem;
+  padding: 5px;
+}
+
+.botonBusqueda:hover {
+  background-color: #0F362D;
+  transform: translateY(-3px);
 }
 
 .inputBusqueda {
   border-radius: 0.3125rem;
   padding: 0.1875rem;
-  border-color:  #0F362D;
+  border-color: #0F362D;
 }
 
 .inputFiltro {
@@ -135,20 +149,22 @@
   margin-bottom: 1.875rem;
 }
 
-.listContainer { 
+.listContainer {
   justify-content: center;
 }
 
-.table { 
+.table {
   text-align: start;
 }
 
-.table-responsive{   
+.table-responsive {
   margin-bottom: 20vh;
 }
 
- th , td, tr {
-  border: solid  #0F362D; 
+th,
+td,
+tr {
+  border: solid #0F362D;
   padding: 0.625rem;
 }
 

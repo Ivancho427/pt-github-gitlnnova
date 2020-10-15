@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import InputyBoton from "./InputyBoton";
 import axios from "axios";
 
-// Se crea una class Component, se crea el constructor y el super. 
-// Además el estado inicial con arreglos vacios para inicializar el estado.
+// Class Component, se crea el constructor, super y se almacena el estado en un arreglo de objetos
 export default class TablaInfo extends Component {
   constructor(props) {
     super(props);
@@ -12,16 +11,11 @@ export default class TablaInfo extends Component {
       repos: [],
       error: "",
       search: "",
-      // next:"",
-      // previous:""
       busqueda: "",
     };
   }
 
-// Se crea el metodo llamadado searchUser quien es la función, se trabaja con async y await,
-// se asigna la constante user por destructuración y se asigna el estado para que cambie cuando se llame la función
-// para catchear se usa el try catch, para hacer la petición http se usó la libreria axios y el metodo get a la url de la api de github
-// para traer los repositorios se trabajó con comillas invertidas y se asignó user entre llaves para forma dinámica
+  // Función para ejecutar el metodo Get a la Api de Github, para extraer datos dinámicos.
   searchUser = async () => {
     const { user } = this.state;
 
@@ -39,44 +33,28 @@ export default class TablaInfo extends Component {
     }
   };
 
-  // Se crea el metodo y se llama la función handleInputChange con una función flecha y parámetro user,
-  //  con el fin que capture el usuario en el input y posterior a esto muestre la información en la tabla.
+  // Función para capturar el usuario ingresado en el Input.
   handleInputChange = (user) => {
     this.setState({ user: user });
-  }; 
- 
-  // Se trato de realizar el filtro de la siguiente manera, sin obtener resultado
+  };
 
-  // filtrarRepositorios = (e) => {
-  //   let filtro = document.querySelector("#filtro").value.toLowerCase();
-  //   let resultado = this.state.user.filter(function (repo) {
-  //     let nombreMin = repo.name.tolowerCase();
-  //     return nombreMin.indexOf(filtro) >= 1;
-  //   });
-  //   console.log(resultado);
-  // };
-
-  // Por ende y según documentación encontrada  se recurrió a realizar el filtro con los siguientes métodos.
-  // Sin embargo, es importante aclarar que el filtro no funciona a partir de la tercera letra.
-  // Además, debe ser con el nombre completo ya que no me tomo las funciones de JS toLowerCase y toUpperCase para letras mayusculas.
-
-  onChange = async e => {    
-    await this.setState({busqueda : e.target.value})
-    console.log(this.state.busqueda)
+  // Función para realizar el filtro según documentación encontrada ya que se intentó como se ejecuto en clase pero no fue posible.
+  onChange = async (e) => {
+    await this.setState({ busqueda: e.target.value });
     this.filtrarElementos();
-  }
+  };
 
-  filtrarElementos=()=>{
-    let search = this.state.repos.filter(repo => {
-      if(repo.name.toString().includes(this.state.busqueda)){
+  filtrarElementos = () => {
+    let search = this.state.repos.filter((repo) => {
+      if (repo.name.toString().includes(this.state.busqueda)) {
         return repo;
       }
     });
-    this.setState({repos: search})
-  }
-  
-  componentDidMount(){
-    this.setState({repos: this.state.repos})
+    this.setState({ repos: search });
+  };
+
+  componentDidMount() {
+    this.setState({ repos: this.state.repos });
   }
 
   // Se aplica el renderizado y por destructuración se pasa las constantes
@@ -86,8 +64,13 @@ export default class TablaInfo extends Component {
     return (
       <div>
         <h3 className="tablas mt-5">Tabla # 1</h3>
-        <h3 className="title"><strong>Ingresa el usuario de Github a continuación para observar los 5 primeros repositorios: </strong></h3>
-        {/* Se asignan props para pasarlos al componente InputyBoton */}
+        <h3 className="title">
+          <strong>
+            Ingresa el usuario de Github a continuación para observar los 5
+            primeros repositorios:{" "}
+          </strong>
+        </h3>
+      
         <InputyBoton
           handleInputChange={this.handleInputChange}
           user={user}
@@ -95,10 +78,14 @@ export default class TablaInfo extends Component {
           buttonAction={this.searchUser}
           repos
         />
-        <label className="title input2"><strong>Para filtrar, ingrese el nombre exacto del repositorio: </strong> </label>
+        <label className="title input2">
+          <strong>
+            Para filtrar, ingrese el nombre exacto del repositorio:{" "}
+          </strong>{" "}
+        </label>
         <input
           type="text"
-          id="filtro"          
+          id="filtro"
           placeholder="Filtrar por nombre"
           name="busqueda"
           value={this.state.busqueda}
