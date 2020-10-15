@@ -1,8 +1,10 @@
 import React from 'react';
 
-const InputyBoton = ({user, error, buttonAction, handleInputChange, onKeyUp}) => (
+
+// Se reciben los props por medio de la destructuración para ejecutar del input y del boton los cambios esperados.
+const InputyBoton = ({user, error, buttonAction, handleInputChange}) => (
     <div className="formContainer">
-        <h3 className="title"><strong>Ingresa el usuario de Github a continuación: </strong></h3>
+        
         <input 
         type="text" 
         className="inputBusqueda" 

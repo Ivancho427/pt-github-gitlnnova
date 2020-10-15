@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Se crea una class Component, se crea el constructor y el super. 
 // Además el estado inicial con arreglos vacios para inicializar el estado.
-export default class TablaInfo extends Component {
+export default class TablaInfo2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ export default class TablaInfo extends Component {
 
     try {
       const { data: repos } = await axios.get(
-        `https://api.github.com/users/${user}/repos?page=1&per_page=5; rel="next`
+        `https://api.github.com/users/${user}/repos?page=2&per_page=5; rel="next`
       );
       console.log(repos);
 
@@ -85,8 +85,8 @@ export default class TablaInfo extends Component {
 
     return (
       <div>
-        <h3 className="tablas mt-5">Tabla # 1</h3>
-        <h3 className="title"><strong>Ingresa el usuario de Github a continuación para observar los 5 primeros repositorios: </strong></h3>
+        <h3 className="tablas">Tabla # 2</h3>
+        <h3 className="title"><strong>Ingresa el usuario de Github a continuación para observar los 5 repositorios siguientes: </strong></h3>
         {/* Se asignan props para pasarlos al componente InputyBoton */}
         <InputyBoton
           handleInputChange={this.handleInputChange}
